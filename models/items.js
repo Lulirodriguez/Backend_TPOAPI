@@ -8,6 +8,7 @@ module.exports=(sequelize,type)=> {
         nombre: type.STRING,
         descripcion:  type.STRING,  
         idCategoria: type.STRING,
+        imagen: type.STRING,
         precioU: type.INTEGER
     });
 }

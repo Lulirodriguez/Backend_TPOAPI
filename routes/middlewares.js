@@ -25,14 +25,6 @@ const checkToken = (req,res,next) => { // si todo va bien, hago next y voy al si
     next();
 }
 
-/*
-Agregar 
-app.use((req, res, next) => {
-  res.header('Access-Control-Allow-Origin', '*');
-  next();
-});
-*/
-
 module.exports = {
-    checkToken : checkToken
+    checkToken : checkToken,
 }

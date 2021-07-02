@@ -69,6 +69,22 @@ router.get('/',async(req,res)=>{
     res.json(user);
 });
 
+//devuelve un  usuario
+router.get('/:id',async(req,res)=>{
+    //res.send('funciona');
+    // console.log(req.params);
+    try{
+        const user = await User.findOne({
+            where:{id:req.params.id}
+        });
+        res.json(user);
+    }
+    catch(err){
+        res.json({error: 'Usuario no encontrado'});
+    }
+});
+
+
 // actualizar informacion de perfil
 router.put('/:id',async(req,res)=>{
     try{
