@@ -27,10 +27,10 @@ router.put('/:idMetodoPago',async(req,res)=>{
         await MetodoPago.update(req.body,{
             where:{idMetodoPago:req.params.idMetodoPago}
         });
-        res.json({succes:'se ha modificado una direccion de envio'})
+        res.json({succes:'se ha modificado un metodo de pago'})
     }
     catch(err){
-        res.json({error:'error al editar direccion de envio'})
+        res.json({error:'error al editar metodo de pago'})
     }
 });
 
@@ -39,7 +39,7 @@ router.delete('/:idMetodoPago', async (req,res)=>{
     await MetodoPago.destroy({
         where:{idMetodoPago:req.params.idMetodoPago}
     });
-    res.json({succes:'se ha borrado una direccion de envio'})
+    res.json({succes:'se ha borrado un metodo de pago'});
 })
 
 
