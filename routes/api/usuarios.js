@@ -24,6 +24,9 @@ router.post('/register', [
     }
 
     req.body.password = bcrypt.hashSync(req.body.password, 10); // Encripta la contraseña: 10 es el numero de veces que se aplica el algoritmo de encriptacion
+    if(!req.body.isAdmin){
+        req.body.isAdmin = false;
+    }
     const user = await User.create(req.body);
     res.json(user);
 });
@@ -57,5 +60,40 @@ const createToken = (user) => {
     }
     return jwt.encode(payload, 'Frase secreta'); // codifica el payload con la clave secreta (decode hacelo opuesto)
 }
+
+//devuelve todos los usuarios
+router.get('/',async(req,res)=>{
+    //res.send('funciona');
+    console.log(req.params);
+    const user=await User.findAll();
+    res.json(user);
+});
+
+// actualizar informacion de perfil
+router.put('/:id',async(req,res)=>{
+    try{
+        const user = await User.findOne({
+            where:{id:req.params.id}
+        });
+        req.body.password = user.password;
+        req.body.isAdmin = user.isAdmin;
+        await User.update(req.body,{
+            where:{id:req.params.id}
+        });
+        res.json({succes:'se ha modificado la informacion de usuario'})
+    }
+    catch(err){
+        res.json({error:'error al modificar informacion de usuario'})
+    }
+});
+
+// elimia un perfil 
+router.delete('/:id', async (req,res)=>{
+    await User.destroy({
+        where:{id:req.params.id}
+    });
+    res.json({succes:'se ha borrado un usuario con exito'});
+})
+
 
 module.exports = router;
