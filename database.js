@@ -4,6 +4,7 @@ const Sequelize = require('sequelize');
 
 const MarcaModelo = require('./models/marcas');
 const UsuarioModelo = require('./models/usuarios');
+const CompraModelo = require('./models/compras');
 
 // configuracion de la base de datos local
 
@@ -16,6 +17,8 @@ const sequelize = new Sequelize('APITPO', 'luliR', 'mysql2271', {
 
 const Marca = MarcaModelo(sequelize,Sequelize);
 const User = UsuarioModelo(sequelize, Sequelize);
+const Compra = CompraModelo(sequelize, Sequelize);
+
 
 sequelize.sync({force: false}).then(() => {
         console.log("Las tablas están sincronizadas");
@@ -26,5 +29,6 @@ sequelize.sync({force: false}).then(() => {
 
 module.exports = {
     Marca,
-    User
+    User,
+    Compra
 }

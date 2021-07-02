@@ -24,6 +24,9 @@ router.post('/register', [
     }
 
     req.body.password = bcrypt.hashSync(req.body.password, 10); // Encripta la contraseña: 10 es el numero de veces que se aplica el algoritmo de encriptacion
+    if(!req.body.isAdmin){
+        req.body.isAdmin = false;
+    }
     const user = await User.create(req.body);
     res.json(user);
 });
