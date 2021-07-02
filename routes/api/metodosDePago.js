@@ -11,6 +11,15 @@ router.get('/',async(req,res)=>{
     res.json(metodoPago);
 });
 
+// devuelve el metodo de pago para un usuario
+router.get('/:idCliente',async(req,res)=>{
+    //res.send('funciona');
+    console.log(req.params);
+    const metodoPago=await MetodoPago.findOne(
+        {where:{idCliente:req.params.idCliente}});
+    res.json(metodoPago);
+});
+
 //crea un metodo de pago
 router.post('/',async(req,res)=>{
     try{

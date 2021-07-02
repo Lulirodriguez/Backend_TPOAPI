@@ -11,6 +11,15 @@ router.get('/',async(req,res)=>{
     res.json(direccion);
 });
 
+// devuelve la direccion para un usuario
+router.get('/:idCliente',async(req,res)=>{
+    //res.send('funciona');
+    console.log(req.params);
+    const direccion=await DireccionEnvio.findOne(
+        {where:{idCliente:req.params.idCliente}});
+    res.json(direccion);
+});
+
 //crea una direccion
 router.post('/',async(req,res)=>{
     const direccion=await DireccionEnvio.create(req.body);

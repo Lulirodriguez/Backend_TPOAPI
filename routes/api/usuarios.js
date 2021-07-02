@@ -14,7 +14,7 @@ router.post('/register', [
     check('nombre', 'El nombre es obligatorio').not().isEmpty(),
     check('apellido', 'El apellido es obligatorio').not().isEmpty(),
     check('username', 'El usuario es obligatorio').not().isEmpty(), // comprueba si el username esta vacio antes de ir a guardarlo
-    // check('username', 'El email es inválido').isEmail(), // cmoprueba que tenga formato de email
+    check('username', 'El email es inválido').isEmail(), // coprueba que tenga formato de email
     check('password', 'El passsword es obligatorio').not().isEmpty(),
 ], async (req, res) => {
 
@@ -42,7 +42,7 @@ router.post('/login', async (req,res) => {
     if (user){
         const passwordMatch = bcrypt.compareSync(req.body.password, user.password); //recibe pass sin encriptar y la compara con la encriptada
         if(passwordMatch){
-            res.json({success: createToken(user)}); // ACA VIENE EL TOKEN =< ahora para buscar marcas y demas, tengo que tener ese token (uso un middleware)
+            res.json(user); // ACA VIENE EL TOKEN =< ahora para buscar marcas y demas, tengo que tener ese token (uso un middleware)
         }else{
             res.json({error : 'Error: usuario y/o contraseña inválidos'});
         }

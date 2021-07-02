@@ -13,8 +13,12 @@ router.get('/',async(req,res)=>{
 
 //crea una transaccion
 router.post('/',async(req,res)=>{
-    const transaccion=await Transaccion.create(req.body);
-    res.json(transaccion);
+    try{
+        const transaccion=await Transaccion.create(req.body);
+        res.json(transaccion);
+    }catch(err){
+        res.json({error: 'Error al crear entidad'});
+    }
 });
 
 //actualiza una transaccion
