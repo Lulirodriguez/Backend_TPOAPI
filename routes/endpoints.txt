@@ -1,0 +1,28 @@
+Los endpoints que necesitamos si o si son:
+
+- Obtener Productos (get)
+- Agregar productos (post)
+- Editar Producto (put)
+- Eliminar Producto (delete)
+
+- Obtener Compras por cliente (por user id por ejemplo) (get)
+- Agregar Compras (post)
+
+- Obtener Transacciones (get)
+- Obtener Transacciones por cliente (por user id por ejemplo) (get)
+- Agregar Transaccion (post)
+
+- Obtener informacion de perfil (1 solo perfil) (get)
+- Editar informacion de perfil (1 solo perfil) (put)
+- registrar/crear perfil (post) (ya esta hecho, revisar que no falte nada)
+- login (post) (ya esta hecho y con el token jwt incluido, revisar que no falte nada)
+
+- Obtener Informacion de Envio (shipping data) (get)
+- Agregar Informacion de Envio (shipping data) (post)
+- Editar Informacion de Envio (shipping data) (put)
+
+- Obtener Informacion de Pago (shipping data) (get)
+- Agregar Informacion de Pago (shipping data) (post)
+- Editar Informacion de Pago (shipping data) (put)
+
+El carrito se maneja desde memoria en el front, no haria falta almacenar los carritos en base de datos.
