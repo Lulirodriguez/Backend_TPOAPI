@@ -3,25 +3,25 @@ const router=require('express').Router();
 const {DireccionEnvio}=require('../../database');
 
 
-//devuelve todos los items
+//devuelve todos las direcciones
 router.get('/',async(req,res)=>{
     //res.send('funciona');
     console.log(req.params);
-    const items=await DireccionEnvio.findAll();
-    res.json(items);
+    const direccion=await DireccionEnvio.findAll();
+    res.json(direccion);
 });
 
-//crea un item
+//crea una direccion
 router.post('/',async(req,res)=>{
-    const item=await DireccionEnvio.create(req.body);
-    res.json(item)
+    const direccion=await DireccionEnvio.create(req.body);
+    res.json(direccion)
 });
 
-//actualiza un item
-router.put('/:idDireccionDeEnvio',async(req,res)=>{
+//actualiza una direccion
+router.put('/:idDireccionEnvio',async(req,res)=>{
     try{
         await DireccionEnvio.update(req.body,{
-            where:{idDireccionDeEnvio:req.params.idDireccionDeEnvio}
+            where:{idDireccionEnvio:req.params.idDireccionEnvio}
         });
         res.json({succes:'se ha modificado una direccion de envio'})
     }
@@ -30,10 +30,10 @@ router.put('/:idDireccionDeEnvio',async(req,res)=>{
     }
 });
 
-//borra un item
-router.delete('/:idDireccionDeEnvio', async (req,res)=>{
+//borra una direccion
+router.delete('/:idDireccionEnvio', async (req,res)=>{
     await DireccionEnvio.destroy({
-        where:{idDireccionDeEnvio:req.params.idDireccionDeEnvio}
+        where:{idDireccionEnvio:req.params.idDireccionEnvio}
     });
     res.json({succes:'se ha borrado una direccion de envio'})
 })

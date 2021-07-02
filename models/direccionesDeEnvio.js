@@ -1,10 +1,11 @@
 module.exports = (sequelize,type) => {
     return sequelize.define('direccionDeEnvio', {
-       idDireccionDeEnvio: {
+        idDireccionEnvio: {
            type: type.INTEGER,
            primaryKey: true,
            autoIncrement: true,
        },
+       idCliente: type.INTEGER,
        direccion1: type.STRING,
        direccion2: type.STRING,
        localidad: type.STRING,

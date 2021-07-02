@@ -6,6 +6,7 @@ const apiUsuarioRouter = require('./api/usuarios');
 const apiComprasRouter = require('./api/compras');
 const apiItemsRouter = require('./api/items');
 const apiDireccionEnvioRouter = require('./api/direccionesDeEnvio');
+const apiMetodoPagoRouter = require('./api/metodosDePago');
 
 // Todas las rutas para marcas ( o acciones que requieran de loguearse) van a pasar por el checkToken que esta en los middlewares
 
@@ -14,5 +15,6 @@ router.use('/usuarios', apiUsuarioRouter); // maneja /api/usuarios
 router.use('/compras', apiComprasRouter); // maneja /api/compras
 router.use('/items', apiItemsRouter); // maneja /api/items
 router.use('/direccionesDeEnvio', apiDireccionEnvioRouter); // maneja /api/direccionesDeEnvio
+router.use('/metodosDePago', apiMetodoPagoRouter);
 
 module.exports = router;

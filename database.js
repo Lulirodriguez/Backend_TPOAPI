@@ -7,6 +7,7 @@ const UsuarioModelo = require('./models/usuarios');
 const CompraModelo = require('./models/compras');
 const ItemModelo = require('./models/items');
 const DireccionEnvioModelo = require('./models/direccionesDeEnvio');
+const MetodoPagoModelo = require('./models/metodosDePago');
 
 // configuracion de la base de datos local
 
@@ -22,7 +23,7 @@ const User = UsuarioModelo(sequelize, Sequelize);
 const Compra = CompraModelo(sequelize, Sequelize);
 const Item = ItemModelo(sequelize, Sequelize);
 const DireccionEnvio = DireccionEnvioModelo(sequelize,Sequelize);
-
+const MetodoPago = MetodoPagoModelo(sequelize,Sequelize);
 
 sequelize.sync({force: false}).then(() => {
         console.log("Las tablas están sincronizadas");
@@ -37,4 +38,5 @@ module.exports = {
     Compra,
     Item,
     DireccionEnvio,
+    MetodoPago,
 }
