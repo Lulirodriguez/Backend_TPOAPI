@@ -11,8 +11,6 @@ router.get('/',async(req,res)=>{
     res.json(compras);
 });
 
-
-
 //crea una compra
 router.post('/',async(req,res)=>{
     const compra=await Compra.create(req.body);
