@@ -11,7 +11,7 @@ router.get('/',async(req,res)=>{
     res.json(transaccion);
 });
 
-//crea una transacciones
+//crea una transaccion
 router.post('/',async(req,res)=>{
     const transaccion=await Transaccion.create(req.body);
     res.json(transaccion);

@@ -22,12 +22,12 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use('/api', apiRouter) // Todo lo que entre con url '/api' lo gestiona apiRouter
 
 /*
-Agregar 
+Agregar */
 app.use((req, res, next) => {
   res.header('Access-Control-Allow-Origin', '*');
   next();
 });
-*/
+/**/
 
 
 // Pongo a escuchar al servidor en el puerto 8000

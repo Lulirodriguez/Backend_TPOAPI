@@ -17,6 +17,6 @@ router.use('/compras', apiComprasRouter); // maneja /api/compras
 router.use('/items', apiItemsRouter); // maneja /api/items
 router.use('/direccionesDeEnvio', apiDireccionEnvioRouter); // maneja /api/direccionesDeEnvio
 router.use('/metodosDePago', apiMetodoPagoRouter);
-router.use('./transacciones',apiTransaccionRouter);
+router.use('/transacciones',apiTransaccionRouter);
 
 module.exports = router;
