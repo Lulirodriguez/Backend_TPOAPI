@@ -1,4 +1,3 @@
-
 module.exports=(sequelize,type)=> {
     return sequelize.define('compra',{
         idCompra:{
@@ -7,8 +6,6 @@ module.exports=(sequelize,type)=> {
             autoIncrement:true
         },
         idCliente:type.INTEGER,
-        itemId:  type.INTEGER,
-        cantidad: type.INTEGER
     });
 }
 

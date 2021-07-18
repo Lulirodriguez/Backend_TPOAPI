@@ -3,11 +3,19 @@ const router=require('express').Router();
 const {Transaccion}=require('../../database');
 
 
-//devuelve todos las transacciones
+//devuelve todos las transacciones (admin)
 router.get('/',async(req,res)=>{
-    //res.send('funciona');
     console.log(req.params);
     const transaccion =await Transaccion.findAll();
+    res.json(transaccion);
+});
+
+// devuelve todas las transacciones de un usuario (perfil)
+router.get('/:idCliente',async(req,res)=>{
+    console.log(req.params);
+    const transaccion =await Transaccion.findAll({
+        where:{idCliente : req.params.idCliente},
+    });
     res.json(transaccion);
 });
 

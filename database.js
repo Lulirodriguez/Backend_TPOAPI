@@ -10,6 +10,7 @@ const DireccionEnvioModelo = require('./models/direccionesDeEnvio');
 const MetodoPagoModelo = require('./models/metodosDePago');
 const TransaccionModelo = require('./models/transacciones');
 const CategoriasModelo = require('./models/categorias')
+const ItemsXCompraModelo = require('./models/itemsXCompra');
 
 // configuracion de la base de datos local
 
@@ -28,6 +29,7 @@ const DireccionEnvio = DireccionEnvioModelo(sequelize,Sequelize);
 const MetodoPago = MetodoPagoModelo(sequelize,Sequelize);
 const Transaccion = TransaccionModelo(sequelize,Sequelize);
 const Categoria = CategoriasModelo(sequelize,Sequelize);
+const ItemXCompra = ItemsXCompraModelo(sequelize,Sequelize);
 
 sequelize.sync({force: false}).then(() => {
         console.log("Las tablas están sincronizadas");
@@ -45,4 +47,5 @@ module.exports = {
     MetodoPago,
     Transaccion,
     Categoria,
+    ItemXCompra,
 }

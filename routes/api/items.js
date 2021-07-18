@@ -3,11 +3,21 @@ const router=require('express').Router();
 const {Item}=require('../../database');
 
 
-//devuelve todos los items
+//devuelve todos los items (admin)
 router.get('/',async(req,res)=>{
     //res.send('funciona');
     console.log(req.params);
     const items=await Item.findAll();
+    res.json(items);
+});
+
+// devuelve todos los items de una categoria (catalogo)
+
+router.get('/:idCategoria',async(req,res)=>{
+    console.log(req.params);
+    const items=await Item.findAll({
+        where: {idCategoria: req.params.idCategoria}
+    });
     res.json(items);
 });
 
@@ -36,7 +46,7 @@ router.delete('/:itemId', async (req,res)=>{
         where:{itemId:req.params.itemId}
     });
     res.json({succes:'se ha borrado un item'})
-})
+});
 
 
 module.exports=router;

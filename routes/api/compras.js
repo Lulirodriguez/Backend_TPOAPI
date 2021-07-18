@@ -11,11 +11,27 @@ router.get('/',async(req,res)=>{
     res.json(compras);
 });
 
+
+//traer por idTransaccion (que ya esta asociada a idCliente) (1 transaccion - 1 compra)
+router.get('/:idCompra',async(req,res)=>{
+    //res.send('funciona');
+    console.log(req.params);
+    const compras=await Compra.findOne({
+        where:{idCompra : req.params.idCompra}
+    });
+    res.json(compras);
+});
+
 //crea una compra
 router.post('/',async(req,res)=>{
-    const compra=await Compra.create(req.body);
-    res.json(compra)
+    try{
+        const compra=await Compra.create(req.body);
+        res.json(compra)
+    }catch(err){
+        res.json({error: 'Error al crear entidad'});
+    }
 });
+
 
 //actualiza una compra
 router.put('/:idCompra',async(req,res)=>{
@@ -35,7 +51,7 @@ router.delete('/:idCompra', async(req,res)=>{
         where:{idCompra:req.params.idCompra}
     });
     res.json({success:'se ha borrado'})
-})
+});
 
 
 module.exports=router;
