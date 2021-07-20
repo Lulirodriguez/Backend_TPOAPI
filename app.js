@@ -1,6 +1,7 @@
 const express = require('express');
 const logger = require('morgan');
 const bodyParser = require('body-parser');
+const cors = require('cors');
 
 const apiRouter = require('./routes/api.js');
 
@@ -18,7 +19,7 @@ app.use(logger('dev')); // Log requests to the console.
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
-
+app.use(cors({origin:'*'}));
 app.use('/api', apiRouter) // Todo lo que entre con url '/api' lo gestiona apiRouter
 
 // Pongo a escuchar al servidor en el puerto 8000
