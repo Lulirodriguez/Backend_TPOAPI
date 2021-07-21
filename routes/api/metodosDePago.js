@@ -31,10 +31,10 @@ router.post('/',async(req,res)=>{
 });
 
 //actualiza un metodo de pago
-router.put('/:idMetodoPago',async(req,res)=>{
+router.put('/:idCliente',async(req,res)=>{
     try{
         await MetodoPago.update(req.body,{
-            where:{idMetodoPago:req.params.idMetodoPago}
+            where:{idCliente:req.params.idCliente}
         });
         res.json({succes:'se ha modificado un metodo de pago'})
     }

@@ -27,10 +27,10 @@ router.post('/',async(req,res)=>{
 });
 
 //actualiza una direccion
-router.put('/:idDireccionEnvio',async(req,res)=>{
+router.put('/:idCliente',async(req,res)=>{
     try{
         await DireccionEnvio.update(req.body,{
-            where:{idDireccionEnvio:req.params.idDireccionEnvio}
+            where:{idCliente:req.params.idCliente}
         });
         res.json({succes:'se ha modificado una direccion de envio'})
     }

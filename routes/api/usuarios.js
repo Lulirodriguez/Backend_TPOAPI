@@ -44,11 +44,11 @@ router.post('/login', async (req,res) => {
         if(passwordMatch){
             res.json(user); // ACA VIENE EL TOKEN =< ahora para buscar marcas y demas, tengo que tener ese token (uso un middleware)
         }else{
-            res.json({error : 'Error: usuario y/o contraseña inválidos'});
+            res.status(404).json({error : 'Error: usuario y/o contraseña inválidos'});
         }
     }
     else{
-        res.json({error : 'Error: usuario y/o contraseña inválidos'});
+        res.status(404).json({error : 'Error: usuario y/o contraseña inválidos'});
     }
 });
 
