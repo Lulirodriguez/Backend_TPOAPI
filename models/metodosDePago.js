@@ -8,7 +8,7 @@ module.exports = (sequelize,type) => {
        idCliente: type.INTEGER,
        nombre:  type.STRING, 
        numero: type.STRING,
-       codigo: type.INTEGER,
+       codigo: type.STRING,
        vencimiento: type.STRING
     });
 }
