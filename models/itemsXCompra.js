@@ -8,6 +8,11 @@ module.exports=(sequelize,type)=> {
         },
         idCompra: type.INTEGER,
         itemId:  type.INTEGER,
+        nombre: type.STRING,
+        descripcion:  type.STRING,  
+        idCategoria: type.STRING,
+        imagen: type.STRING,
+        precioU: type.INTEGER,
         cantidad: type.INTEGER
     });
 }
