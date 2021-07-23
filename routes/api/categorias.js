@@ -11,6 +11,16 @@ router.get('/',async(req,res)=>{
     res.json(categoria);
 });
 
+//devueve la categoria que coincida con el id
+router.get('/:idCategoria',async(req,res)=>{
+    //res.send('funciona');
+    console.log(req.params);
+    const categoria = await Categoria.findOne({
+        where:{idCategoria:req.params.idCategoria}
+    });
+    res.json(categoria);
+});
+
 //crea una categoria
 router.post('/',async(req,res)=>{
     const categoria=await Categoria.create(req.body);
