@@ -86,7 +86,16 @@ router.get('/:id',async(req,res)=>{
 
 
 // actualizar informacion de perfil
-router.put('/:id',async(req,res)=>{
+router.put('/:id',[
+    check('nombre', 'El nombre es obligatorio').not().isEmpty(),
+    check('apellido', 'El apellido es obligatorio').not().isEmpty(),
+    check('username', 'El usuario es obligatorio').not().isEmpty(), // comprueba si el username esta vacio antes de ir a guardarlo
+    check('username', 'El email es inválido').isEmail(), // comprueba que tenga formato de email
+], async(req,res)=>{
+    const errors = validationResult(req); // valido si alguno de los checks fallo
+    if(!errors.isEmpty()){ // si hubieron fallas 
+        return res.status(422).json({ errors : errors.array()}); // status 422: no se ha podido editar entidad, devuelvo como json un array con todos los errores
+    }
     try{
         const user = await User.findOne({
             where:{id:req.params.id}
