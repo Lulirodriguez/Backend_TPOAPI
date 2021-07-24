@@ -201,14 +201,6 @@ const loadData = async () => {
     }
     await Item.create(producto);
     producto = {
-        'nombre': '',
-        'descripcion': '',
-        'idCategoria': 3,
-        'imagen': '',
-        'precioU': 0,
-    }
-    await Item.create(producto);
-    producto = {
         'nombre': 'Medias',
         'descripcion': 'Medias verdes y negras',
         'idCategoria': 3,
